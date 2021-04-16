@@ -5,17 +5,18 @@ import ChatBot from '../../lib/index';
 const config ={
   width: "424px",
   height: "689px",
-  // floating: true,
+   floating: true,
 };
 
 const otherFontTheme = {
-  background: '#f5f8fb',
+
+  background: '#0A84FF',
   fontFamily: 'Helvetica Neue',
-  headerBgColor: '#6e48aa',
+  headerBgColor: '#0A84FF',
   headerFontColor: '#fff',
   headerFontSize: '16px',
-  botBubbleColor: '#6E48AA',
-  botFontColor: '#fff',
+  botBubbleColor: '#FFFFFF',
+  botFontColor: '#2E2E2E',
   userBubbleColor: '#fff',
   userFontColor: '#4a4a4a'
 };
@@ -59,10 +60,10 @@ const steps = [
     id:'workOptions',
 
     options:[
-      {value:'object', label:'object', trigger:'object-response'},
-      // {value:'image', label:'image', trigger:'image-response'},
-      // {value:'excel', label:'excel', trigger:'excel-response'},
-      // {value:'etc', label:'etc', trigger:'etc-response'},
+      {value:'물체인식 라벨링', label:'물체인식 라벨링', trigger:'object-response'},
+      {value:'이미지 라벨링', label:'이미지 라벨링', trigger:'object-response'},
+      {value:'엑셀데이터라벨링', label:'엑셀데이터라벨링', trigger:'object-response'},
+      {value:'', label:'기타', trigger:'object-response'},
     ]
   },
   {
@@ -74,7 +75,7 @@ const steps = [
     id:'intro-user2',
     user:true,
     validator: (value) => {
-      if (/^[1-9][1-9\'\-]+([\ 1-9][1-9\'\-]+)*/.test(value))
+      if (/^[0-9]{1,4}/.test(value))
 
       {
         return true;
@@ -88,12 +89,13 @@ const steps = [
   },
   {
     id:'q-email',
-    message:'Hello. What is your email?',
+    message:'연락받으실 이메일 주소를 입력해주세요.',
     trigger:'email',
   },
   {
     id:'email',
     user:true,
+    // placehold:'이메일을 입력해주세요';
     validator: (value) => {
       if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(value))
       {
