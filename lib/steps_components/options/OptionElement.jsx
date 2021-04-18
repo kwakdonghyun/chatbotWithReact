@@ -4,9 +4,9 @@ import defaultTheme from '../../theme';
 const OptionElement = styled.button`
   background: #2979FF; // ${({ theme }) => theme.botBubbleColor}
   border: 0;
-  border-radius: 15px;
-
-  box-shadow: 1px 1px 1px 1px #ffffff;
+  border-radius: 8px;
+  border: 1px solid white;
+  //box-shadow: 1px 1px 1px 1px #ffffff;
 
   color: #ffffff; // ${({ theme }) => theme.botFontColor}
   display: inline-block;
